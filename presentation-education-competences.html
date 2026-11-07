@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Éducation et compétences en Tunisie : le diplôme ne suffit plus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f6fb;--fg:#0c1a4b;--mut:#4d5a86;--ac:#ffb400;--on:#0c1a4b;--card:#fff;--line:rgba(12,26,75,.13);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1a4b;--fg:#f4f6ff;--mut:#a9b4dc;--ac:#ffc21a;--card:rgba(255,255,255,.07);--line:rgba(244,246,255,.16)}}
+:root[data-theme="dark"]{--bg:#0c1a4b;--fg:#f4f6ff;--mut:#a9b4dc;--ac:#ffc21a;--card:rgba(255,255,255,.07);--line:rgba(244,246,255,.16)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--fg);font-family:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;position:relative}
+.deck{position:absolute;inset:0;overflow:hidden}
+.s{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:clamp(10px,2vh,22px);padding:clamp(22px,5vw,84px) clamp(22px,6vw,104px) clamp(70px,9vh,96px);opacity:0;visibility:hidden;transform:translateX(5%);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1),visibility 0s .8s}
+.s.on{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.s.past{transform:translateX(-5%)}
+h1{font-size:clamp(2.4rem,8vw,6.4rem);line-height:.98;font-weight:800;margin:0;letter-spacing:-.03em;max-width:12ch}
+h2{font-size:clamp(1.5rem,3.7vw,3rem);line-height:1.1;font-weight:800;margin:0;letter-spacing:-.02em;max-width:24ch}
+p{font-size:clamp(1rem,1.8vw,1.45rem);line-height:1.4;color:var(--mut);margin:0;max-width:46ch}
+.src{font-size:clamp(.75rem,1.2vw,.95rem);color:var(--mut);opacity:.85}
+[data-a]{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:0s}
+.on [data-a]{opacity:1;transform:none;transition-delay:calc(var(--i,0)*.14s + .3s)}
+/* titre */
+.hero .disc{position:absolute;right:-12vmin;top:50%;width:62vmin;height:62vmin;margin-top:-31vmin;border-radius:50%;background:var(--ac);transform:scale(.4);opacity:0;transition:transform 1.4s cubic-bezier(.2,.7,.2,1) .2s,opacity 1s ease .2s}
+.hero.on .disc{transform:scale(1);opacity:1;animation:fl 7s ease-in-out 1.6s infinite}
+.hero .disc::after{content:"";position:absolute;inset:14%;border-radius:50%;border:2px solid var(--on);opacity:.5}
+@keyframes fl{50%{transform:translateY(-2.5vmin) scale(1.03)}}
+.pill{align-self:flex-start;background:var(--ac);color:var(--on);font-weight:600;padding:8px 18px;border-radius:99px;font-size:clamp(.85rem,1.4vw,1.1rem)}
+.hero>*{position:relative;z-index:1}
+.hero .disc{z-index:0}
+/* barres */
+.rows{display:flex;flex-direction:column;gap:clamp(10px,2vh,20px);width:100%;max-width:980px}
+.row{display:grid;grid-template-columns:minmax(120px,30%) 1fr 5.2em;gap:14px;align-items:center}
+.row span{font-size:clamp(.85rem,1.6vw,1.25rem);font-weight:600}
+.row b{font-size:clamp(1.1rem,2.2vw,1.8rem);font-weight:800;text-align:right}
+.bar{height:clamp(16px,3vh,30px);background:var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--fg);transition:width 1.3s cubic-bezier(.2,.7,.2,1) calc(var(--i)*.18s + .6s)}
+.hi i{background:var(--ac)}
+.on .bar i{width:var(--w)}
+/* chiffres */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:clamp(12px,2vw,24px);width:100%;max-width:1060px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(16px,2.4vw,30px);display:flex;flex-direction:column;gap:8px}
+.big{font-size:clamp(2.6rem,6.4vw,5rem);font-weight:800;line-height:1;letter-spacing:-.03em}
+.big small{font-size:.42em;font-weight:600;margin-left:.2em;color:var(--mut)}
+.card p{font-size:clamp(.9rem,1.5vw,1.15rem)}
+.ring{width:clamp(54px,8vw,84px);height:auto}
+.ring circle{fill:none;stroke-width:9;stroke-linecap:round}
+.ring .t{stroke:var(--line)}
+.ring .v{stroke:var(--ac);stroke-dasharray:326.7;stroke-dashoffset:326.7;transform:rotate(-90deg);transform-origin:60px 60px;transition:stroke-dashoffset 1.4s cubic-bezier(.2,.7,.2,1) .7s}
+.on .ring .v{stroke-dashoffset:calc(326.7 * (1 - var(--p)))}
+/* arbre */
+.tree{display:flex;flex-direction:column;gap:clamp(8px,1.6vh,16px);width:100%;max-width:1060px}
+.tier{display:grid;grid-template-columns:clamp(84px,12vw,140px) 1fr;gap:14px;align-items:center}
+.tier>em{font-style:normal;font-weight:600;color:var(--mut);font-size:clamp(.75rem,1.3vw,1rem)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--card);border:1px solid var(--line);padding:clamp(6px,1.1vh,11px) clamp(10px,1.4vw,16px);border-radius:12px;font-size:clamp(.78rem,1.5vw,1.1rem);font-weight:600}
+.trunk{background:var(--ac);color:var(--on);font-weight:800;font-size:clamp(1rem,2.2vw,1.7rem);padding:clamp(10px,1.8vh,18px) clamp(14px,2vw,26px);border-radius:16px}
+/* 5 pourquoi */
+.why{display:flex;flex-direction:column;gap:clamp(8px,1.6vh,14px);width:100%;max-width:1000px}
+.w{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(8px,1.5vh,14px) clamp(12px,1.6vw,20px);margin-left:calc(var(--k)*3.2%);font-size:clamp(.85rem,1.65vw,1.25rem);font-weight:600}
+.w i{flex:none;width:2em;height:2em;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:.85em}
+.w.root{background:var(--ac);color:var(--on);border-color:transparent}
+.w.root i{background:var(--on);color:var(--ac)}
+/* fin */
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(16px,3vw,48px);align-items:center;width:100%;max-width:1100px}
+.note{border-left:4px solid var(--ac);padding-left:16px;display:flex;flex-direction:column;gap:10px}
+.note strong{font-size:clamp(1.05rem,2vw,1.5rem)}
+@media (max-width:760px){.two{grid-template-columns:1fr}.row{grid-template-columns:1fr 4.2em;gap:4px 10px}.row span{grid-column:1/-1}.tier{grid-template-columns:1fr;gap:6px}}
+/* navigation */
+.pg{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:5px;width:0;background:var(--ac);transition:width .6s cubic-bezier(.2,.7,.2,1);z-index:5}
+.nav{position:fixed;right:clamp(14px,3vw,32px);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);display:flex;align-items:center;gap:10px;z-index:5;font-weight:600;color:var(--mut);font-size:.95rem}
+.nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--fg);font-size:1.2rem;cursor:pointer;transition:transform .2s,background .2s}
+.nav button:hover{background:var(--ac);color:var(--on);transform:scale(1.08)}
+.nav button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation:none!important;transition-delay:0s!important}}
+</style>
+</head>
+<body>
+<div class="pg" id="pg"></div>
+<main class="deck">
+
+<section class="s hero on">
+  <div class="disc"></div>
+  <span class="pill" data-a style="--i:0">Enactus ISET Djerba</span>
+  <h1 data-a style="--i:1">Le diplôme ne suffit plus</h1>
+  <p data-a style="--i:2">Éducation et compétences en Tunisie : pourquoi tant de jeunes diplômés ne trouvent pas d’emploi.</p>
+  <span class="src" data-a style="--i:3">Première étape : comprendre les problèmes</span>
+</section>
+
+<section class="s">
+  <h2 data-a style="--i:0">Les diplômés sont plus touchés par le chômage que les autres actifs</h2>
+  <div class="rows">
+    <div class="row" data-a style="--i:1"><span>Tous les actifs</span><div class="bar" style="--w:14.9%;--i:0"><i></i></div><b><u data-to="14.9" data-d="1" style="text-decoration:none">14,9</u> %</b></div>
+    <div class="row hi" data-a style="--i:2"><span>Diplômés du supérieur</span><div class="bar" style="--w:26.6%;--i:1"><i></i></div><b><u data-to="26.6" data-d="1" style="text-decoration:none">26,6</u> %</b></div>
+    <div class="row" data-a style="--i:3"><span>Diplômés hommes</span><div class="bar" style="--w:14.2%;--i:2"><i></i></div><b><u data-to="14.2" data-d="1" style="text-decoration:none">14,2</u> %</b></div>
+    <div class="row hi" data-a style="--i:4"><span>Diplômées femmes</span><div class="bar" style="--w:35.6%;--i:3"><i></i></div><b><u data-to="35.6" data-d="1" style="text-decoration:none">35,6</u> %</b></div>
+  </div>
+  <p data-a style="--i:5">Chez les femmes diplômées, plus d’une sur trois est au chômage.</p>
+  <span class="src" data-a style="--i:6">Source : INS, 2ᵉ trimestre 2026</span>
+</section>
+
+<section class="s">
+  <h2 data-a style="--i:0">Attendre longtemps, travailler sans contrat, penser à partir</h2>
+  <div class="cards">
+    <div class="card" data-a style="--i:1">
+      <div class="big"><u data-to="26.5" data-d="1" style="text-decoration:none">26,5</u><small>mois</small></div>
+      <p>d’attente en moyenne avant le premier emploi, soit plus de deux ans.</p>
+      <span class="src">OCDE, jeunes primo-demandeurs</span>
+    </div>
+    <div class="card" data-a style="--i:2">
+      <svg class="ring" viewBox="0 0 120 120" style="--p:.47"><circle class="t" cx="60" cy="60" r="52"/><circle class="v" cx="60" cy="60" r="52"/></svg>
+      <div class="big"><u data-to="47" data-d="0" style="text-decoration:none">47</u><small>%</small></div>
+      <p>des emplois sont informels, sans contrat stable.</p>
+      <span class="src">OCDE, 2021</span>
+    </div>
+    <div class="card" data-a style="--i:3">
+      <svg class="ring" viewBox="0 0 120 120" style="--p:.395"><circle class="t" cx="60" cy="60" r="52"/><circle class="v" cx="60" cy="60" r="52"/></svg>
+      <div class="big"><u data-to="39.5" data-d="1" style="text-decoration:none">39,5</u><small>%</small></div>
+      <p>des 15-29 ans voudraient émigrer.</p>
+      <span class="src">INS, enquête 2020-2021</span>
+    </div>
+  </div>
+</section>
+
+<section class="s">
+  <h2 data-a style="--i:0">Les entreprises cherchent de l’expérience et des compétences concrètes</h2>
+  <div class="rows">
+    <div class="row hi" data-a style="--i:1"><span>Expérience importante pour les managers</span><div class="bar" style="--w:83%;--i:0"><i></i></div><b><u data-to="83" style="text-decoration:none">83</u> %</b></div>
+    <div class="row hi" data-a style="--i:2"><span>Expérience importante pour le personnel technique</span><div class="bar" style="--w:67%;--i:1"><i></i></div><b><u data-to="67" style="text-decoration:none">67</u> %</b></div>
+    <div class="row" data-a style="--i:3"><span>Difficulté à trouver des managers expérimentés</span><div class="bar" style="--w:40%;--i:2"><i></i></div><b><u data-to="40" style="text-decoration:none">40</u> %</b></div>
+    <div class="row" data-a style="--i:4"><span>Main-d’œuvre pas assez formée</span><div class="bar" style="--w:35%;--i:3"><i></i></div><b><u data-to="35" style="text-decoration:none">35</u> %</b></div>
+  </div>
+  <p data-a style="--i:5">Souvent cités : langues, communication, travail en équipe.</p>
+  <span class="src" data-a style="--i:6">Source : Banque mondiale, 2023 (part des entreprises interrogées)</span>
+</section>
+
+<section class="s">
+  <h2 data-a style="--i:0">L’arbre à problèmes</h2>
+  <div class="tree">
+    <div class="tier" data-a style="--i:1"><em>Conséquences</em><div class="chips"><span class="chip">Chômage long</span><span class="chip">Emplois informels</span><span class="chip">Découragement</span><span class="chip">Envie d’émigrer</span></div></div>
+    <div class="tier" data-a style="--i:2"><em>Problème</em><div class="trunk">Les diplômés n’ont pas les compétences et l’expérience que le marché demande</div></div>
+    <div class="tier" data-a style="--i:3"><em>Causes</em><div class="chips"><span class="chip">Programmes lents à actualiser</span><span class="chip">Stages mal encadrés</span><span class="chip">Peu de langues et de soft skills</span><span class="chip">Peu d’emplois qualifiés</span><span class="chip">Moins d’offres en région</span></div></div>
+  </div>
+</section>
+
+<section class="s">
+  <h2 data-a style="--i:0">Les 5 pourquoi : pourquoi un diplômé ne trouve-t-il pas d’emploi ?</h2>
+  <div class="why">
+    <div class="w" style="--k:0" data-a><i>1</i>Son profil ne correspond pas à ce que cherchent les employeurs.</div>
+    <div class="w" style="--k:1" data-a><i>2</i>Il manque d’expérience pratique, de langues et de soft skills.</div>
+    <div class="w" style="--k:2" data-a><i>3</i>Les stages et l’alternance sont mal structurés.</div>
+    <div class="w" style="--k:3" data-a><i>4</i>Les programmes changent lentement, avec peu de liens avec les entreprises.</div>
+    <div class="w root" style="--k:4" data-a><i>5</i>Rien ne relie régulièrement ce que le marché demande à ce qu’on enseigne. (Cause racine, à discuter)</div>
+  </div>
+</section>
+
+<section class="s">
+  <div class="two">
+    <div style="display:flex;flex-direction:column;gap:clamp(10px,2vh,20px)">
+      <h2 data-a style="--i:0">À Médenine, le chômage des femmes est plus de 3 fois plus élevé</h2>
+      <div class="rows">
+        <div class="row" data-a style="--i:1"><span>Hommes</span><div class="bar" style="--w:8.6%;--i:0"><i></i></div><b><u data-to="8.6" data-d="1" style="text-decoration:none">8,6</u> %</b></div>
+        <div class="row hi" data-a style="--i:2"><span>Femmes</span><div class="bar" style="--w:31.5%;--i:1"><i></i></div><b><u data-to="31.5" data-d="1" style="text-decoration:none">31,5</u> %</b></div>
+      </div>
+      <span class="src" data-a style="--i:3">Étude citant l’INS, 2019, tous niveaux d’études confondus</span>
+    </div>
+    <div class="note" data-a style="--i:3">
+      <strong>Ce qu’on ne sait pas encore</strong>
+      <p>Aucun taux d’emploi publié pour les diplômés de l’ISET Djerba.</p>
+      <strong>Merci !</strong>
+      <p>Des questions ?</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<nav class="nav" aria-label="Navigation">
+  <button id="pv" aria-label="Diapositive précédente">&#8592;</button>
+  <span id="ct">1 / 7</span>
+  <button id="nx" aria-label="Diapositive suivante">&#8594;</button>
+</nav>
+<script>
+(function(){
+var S=[].slice.call(document.querySelectorAll('.s')),c=-1,pg=document.getElementById('pg'),ct=document.getElementById('ct');
+function count(el){
+  [].forEach.call(el.querySelectorAll('[data-to]'),function(e){
+    var to=+e.dataset.to,d=+(e.dataset.d||0),fin=to.toFixed(d).replace('.',','),t0;
+    e.textContent=(0).toFixed(d).replace('.',',');
+    clearTimeout(e._t);
+    e._t=setTimeout(function(){
+      t0=performance.now();
+      (function f(t){var p=Math.min(1,(t-t0)/1300),v=to*(1-Math.pow(1-p,3));
+        e.textContent=p<1?v.toFixed(d).replace('.',','):fin;
+        if(p<1)requestAnimationFrame(f);})(t0);
+    },650);
+  });
+}
+function show(n){
+  n=Math.max(0,Math.min(S.length-1,n));if(n===c)return;c=n;
+  S.forEach(function(s,i){s.classList.toggle('on',i===n);s.classList.toggle('past',i<n);});
+  pg.style.width=((n+1)/S.length*100)+'%';ct.textContent=(n+1)+' / '+S.length;
+  count(S[n]);
+  try{history.replaceState(null,'','#s'+(n+1));}catch(e){}
+}
+function fromHash(){var m=/^#s(\d+)$/.exec(location.hash);return m?+m[1]-1:0;}
+document.getElementById('nx').onclick=function(){show(c+1);};
+document.getElementById('pv').onclick=function(){show(c-1);};
+document.addEventListener('keydown',function(e){
+  var k=e.key;
+  if(k==='ArrowRight'||k==='PageDown'||k===' '||k==='Enter'){e.preventDefault();show(c+1);}
+  else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();show(c-1);}
+  else if(k==='Home')show(0);else if(k==='End')show(S.length-1);
+});
+var x0=null;
+document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchend',function(e){
+  if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;
+  if(Math.abs(dx)>50)show(dx<0?c+1:c-1);
+},{passive:true});
+window.addEventListener('hashchange',function(){show(fromHash());});
+show(fromHash());
+})();
+</script>
+</body>
+</html>
